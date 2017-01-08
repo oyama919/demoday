@@ -1,42 +1,27 @@
 Rails.application.routes.draw do
-  get 'top/index'
 
-  get 'dictionalys/index'
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+    }
 
-  get 'dictionalys/show'
+    resources :notes do
+      collection do
+        post :confirm
+      end
+    end
 
-  get 'dictionalys/new'
 
-  get 'dictionalys/create'
+    resources :dictionalys do
+      collection do
+        post :confirm
+      end
+    end
 
-  get 'dictionalys/edit'
+    resources :users, only: [:index, :show]
 
-  get 'dictionalys/update'
+    resources :relationships, only: [:create, :destroy]
 
-  get 'dictionalys/destroy'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  devise_for :users
-  get 'notes/index'
-
-  get 'notes/show'
-
-  get 'notes/new'
-
-  get 'notes/create'
-
-  get 'notes/edit'
-
-  get 'notes/update'
-
-  get 'notes/destroy'
-
-  get 'notes/index'
-
-  root 'top#index'
+    root 'top#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
