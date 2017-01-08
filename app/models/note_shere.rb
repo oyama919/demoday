@@ -1,0 +1,3 @@
+class NoteShere < ActiveRecord::Base
+  belongs_to :user
+end
