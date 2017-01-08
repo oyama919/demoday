@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'top/index'
+
   get 'dictionalys/index'
 
   get 'dictionalys/show'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'notes/index'
 
+  get 'notes/show'
+
   get 'notes/new'
 
   get 'notes/create'
@@ -31,6 +35,8 @@ Rails.application.routes.draw do
   get 'notes/destroy'
 
   get 'notes/index'
+
+  root 'top#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
