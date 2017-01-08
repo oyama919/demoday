@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'dictionalys/index'
+
+  get 'dictionalys/show'
+
+  get 'dictionalys/new'
+
+  get 'dictionalys/create'
+
+  get 'dictionalys/edit'
+
+  get 'dictionalys/update'
+
+  get 'dictionalys/destroy'
+
   get 'users/index'
 
   get 'users/show'
