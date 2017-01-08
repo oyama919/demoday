@@ -10,12 +10,9 @@
 <header>
   <nav>
     <ul>
-      <li><<%= link_to "ノート", blogs_path %></li>
-      <li><<%= link_to "辞書", blogs_path %></li>
-      <li><a href="" class="nav__item"></a></li>
-      <li><a href="" class="nav__item"></a></li>
+      <li><%= link_to "ノート", notes_path %></li>
+      <li><%= link_to "辞書", dictionalys_path %></li>
       <% if user_signed_in? %>
-       <li><%= link_to 'マイページ', edit_user_registration_path %></li>
        <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>
