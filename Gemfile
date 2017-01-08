@@ -28,6 +28,9 @@ gem 'hirb'
 gem 'hirb-unicode'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'
+gem 'faker'
+gem 'rails_admin'
+gem 'cancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +44,8 @@ gem 'jquery-turbolinks'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'letter_opener_web'
+  gem 'dotenv-rails'  
 end
 
 group :development do
