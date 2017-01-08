@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
 
 
-    resources :dictionalys do
+    resources :dictionalies do
       collection do
         post :confirm
       end
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
 
     root 'top#index'
-    
+
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/letter_opener"
     end

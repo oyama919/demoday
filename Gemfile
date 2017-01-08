@@ -31,6 +31,9 @@ gem 'jquery-turbolinks'
 gem 'faker'
 gem 'rails_admin'
 gem 'cancan'
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

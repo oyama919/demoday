@@ -1,0 +1,9 @@
+<h1>Dictionalies#show</h1>
+<p>Find me in app/views/dictionalies/show.html.erb</p>
+<% if @dictionaly.image? %>
+　<%= image_tag @dictionaly.image.thumb.url %>
+<% else %>
+　<%= image_tag 'noimage.gif' %>
+<% end %>
+<%= link_to "辞書を作成する", new_dictionaly_path %>
+<%= link_to "辞書一覧へ戻る", dictionalies_path %>
