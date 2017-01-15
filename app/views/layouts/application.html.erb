@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Note app</title>
+  <title>lore logs</title>
   <%= stylesheet_link_tag 'reset', :media => 'all' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,10 +10,11 @@
 </head>
 <body>
   <header class="header">
-    <h1 class="header__title">lore logs</h1>
+    <h1 class="header__title"><%= link_to "lore logs", root_path %></h1>
   </header>
   <nav class="nav">
     <ul class="nav__list">
+      <h2 class="nav__title"><%= link_to "- Menu -", root_path %></h2>
       <li class="nav__item"><%= link_to "Note", notes_path %></li>
       <li class="nav__item"><%= link_to "Dictionly", dictionalies_path %></li>
       <% if user_signed_in? %>
