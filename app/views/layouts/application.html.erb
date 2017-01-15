@@ -2,27 +2,31 @@
 <html>
 <head>
   <title>Note app</title>
+  <%= stylesheet_link_tag 'reset', :media => 'all' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to "ノート", notes_path %></li>
-      <li><%= link_to "辞書", dictionalies_path %></li>
+  <header class="header">
+    <h1 class="header__title">lore logs</h1>
+  </header>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><%= link_to "Note", notes_path %></li>
+      <li class="nav__item"><%= link_to "Dictionly", dictionalies_path %></li>
       <% if user_signed_in? %>
-       <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
-       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+       <li class="nav__item"><%= link_to 'Users', users_path if user_signed_in? %></li>
+       <li class="nav__item"><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
       <% else %>
-       <li><%= link_to 'ログイン', new_user_session_path %></li>
-       <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+       <li class="nav__item"><%= link_to 'ログイン', new_user_session_path %></li>
+       <li class="nav__item"><%= link_to '新規会員登録', new_user_registration_path %></li>
       <% end %>
     </ul>
   </nav>
-</header>
-<%= yield %>
-
+  <div class="main-contents">
+    <%= yield %>
+  </div>
 </body>
 </html>

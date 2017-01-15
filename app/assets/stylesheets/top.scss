@@ -1,3 +1,56 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*top用*/
+.main-contents{
+  margin-left: 220px;
+  width: auto;
+  padding: 40px 30px 30px;
+}
+.top-page__header{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.top-page__title{
+  font-size: 20px;
+  color: #535220;
+}
+.top-page__body{
+  border: 1px solid #838250;
+  padding: 20px;
+  background: #fefefe;
+  height: 100%;
+  margin: auto;
+}
+.top-page__column{
+  width: 49.5%;
+  height: 200px;
+  display: inline-block;
+  border: 1px solid #838250;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+}
+@media (max-width: 850px) {
+  .header{
+    margin-left: 120px;
+  }
+  .nav{
+    width: 120px;
+    padding: 150px 5px 10px;
+  }
+  .nav__item{
+    font-size: 18px;
+  }
+  .main-contents{
+    margin-left: 120px;
+    width: auto;
+    padding: 50px 30px 30px;
+  }
+  .top-page__column{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+.note{
+}
+.note__page-left{
+}
+.note__page-right{
+}
