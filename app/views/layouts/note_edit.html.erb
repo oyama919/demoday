@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>lore logs</title>
+  <%= stylesheet_link_tag 'reset', :media => 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="note__wrapper">
+    <div class="left-page">
+      <header class="note__header">
+        <h1 class="note__header__title"><%= link_to "lore logs", root_path %></h1>
+        <nav class="note__nav">
+        <ul class="note__nav__list">
+          <li class="note__nav__item"><%= link_to "ノート一覧へもどる", notes_path %></li>
+        </ul>
+        </nav>
+      </header>
+      <div class="note__body">
+
+      </div>
+    </div>
+    <div class="right-page">
+      <header class="note__header">
+        <nav class="note__nav">
+        <ul class="note__nav__list">
+          <li class="note__nav__item">
+            <%= form_for(@note) do |f| %>
+                <label for="note_image" class="file">
+                  <p class="file-text">画像選択</p>
+                  <%= image_tag @note.image.thumb.url if @note.image? %>
+                <%= f.file_field :image %>
+                <%= f.hidden_field :image_cache %>
+                </label>
+            <% end %>
+          </li>
+          <li class="note__nav__item"><%= link_to "保存する", notes_path %></li>
+        </ul>
+        </nav>
+      </header>
+      <div class="note__body">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

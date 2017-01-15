@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
+
   def index
     @notes = Note.all
   end
@@ -9,6 +12,7 @@ class NotesController < ApplicationController
     else
       @note = Note.new
     end
+    render layout: 'note_edit'
   end
 
   def confirm
@@ -27,6 +31,7 @@ class NotesController < ApplicationController
   end
 
   def edit
+    render layout: 'note_edit'
   end
 
   def update
@@ -44,7 +49,11 @@ class NotesController < ApplicationController
   end
 
   private
-    def note_params
-      params.require(:user).permit(:name, :description, :image)
+    def notes_params
+      params.require(:note).permit(:name, :description, :image)
+    end
+
+    def set_note
+      @note = Note.find(params[:id])
     end
 end

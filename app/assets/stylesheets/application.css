@@ -24,12 +24,12 @@ body{
   position: absolute;
   top: 0;
   left: 0;
-  padding: 30px 0 0;
 }
 .header{
   margin-left: 220px;
   box-sizing: border-box;
   text-align: center;
+  padding-top: 30px;
 }
 .header__title>a{
   font-size: 30px;
@@ -162,12 +162,4 @@ body{
     margin:0 auto 10px;
   }
 }
-  /* メインコンテンツ用大枠 *ここまで /
-
-/* ノートのCSSはトップでも使用 */
-.note{
-}
-.note__page-left{
-}
-.note__page-right{
-}
+/* メインコンテンツ用大枠 *ここまで /
