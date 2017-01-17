@@ -5,45 +5,14 @@
     <li class="page__nav"><%= link_to "辞書一覧へ", dictionalies_path %></li>
   </uL>
 </div>
+<p><%= notice %></p>
 <div class="main__body">
-  <div class="main__column">
-    <div class="note">
-      <div class="note__page-left">
-
-      </div>
-      <div class="note__page-right">
-
-      </div>
-    </div>
-  </div>
-  <div class="main__column">
-    <div class="note">
-      <div class="note__page-left">
-
-      </div>
-      <div class="note__page-right">
-
-      </div>
-    </div>
-  </div>
-  <div class="main__column">
-    <div class="note">
-      <div class="note__page-left">
-
-      </div>
-      <div class="note__page-right">
-
-      </div>
-    </div>
-  </div>
-  <div class="main__column">
-    <div class="note">
-      <div class="note__page-left">
-
-      </div>
-      <div class="note__page-right">
-
-      </div>
-    </div>
-  </div>
+    <% @notes.each do |note| %>
+    <article class="main__column">
+      <h1>タイトル：<%= note.title %></h1>
+      <img src="<%= note.image %>">
+      <p><%= note.content %></p>
+      <%= link_to "ノート詳細", note_path(note.id) %>
+    </article>
+    <% end %>
 </div>
