@@ -163,3 +163,10 @@ body{
   }
 }
 /* メインコンテンツ用大枠 *ここまで /
+
+/*ログイン画面用View*/
+.device{
+  text-align: center;
+  line-height: 2;
+}
+/*ログイン画面用Viewここまで*/
