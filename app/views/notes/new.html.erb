@@ -1,1 +1,13 @@
+<header class="note__header">
+  <nav class="note__nav">
+    <ul class="note__nav__list">
+      <li class="note__nav__item">img</li>
+      <li id="textBtn" class="note__nav__item">text</li>
+      <li class="note__nav__item">投稿</li>
+      <li class="note__nav__item"><%= link_to "保存する", notes_path %></li>
+    </ul>
+  </nav>
+</header>
+<div class="note__body">
   <%= render 'form' %>
+</div>

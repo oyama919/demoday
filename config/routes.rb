@@ -4,6 +4,7 @@ Rails.application.routes.draw do
  devise_for :users
 
     resources :notes do
+      resources :note_texts
       collection do
         post :confirm
       end

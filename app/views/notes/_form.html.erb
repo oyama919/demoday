@@ -2,10 +2,6 @@
   <%= form_for(@note) do |f| %>
   <%= f.label :タイトル %>
   <%= f.text_field :title, class: 'edit__field edit__title' %>
-  <br>
-  <%= f.label :内容 %>
-  <%= f.text_area:content, class: 'edit__field edit__text' %>
-  <br>
   <%= f.submit '投稿', class: 'button' %>
   <% end %>
 </div>

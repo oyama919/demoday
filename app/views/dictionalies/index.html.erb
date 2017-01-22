@@ -1,4 +1,16 @@
-<h1>Dictionalies#index</h1>
-<p>Find me in app/views/dictionalies/index.html.erb</p>
-<%= link_to "辞書を作成する", new_dictionaly_path %>
-<%= link_to "ノート一覧へ", notes_path %>
+
+<div class="dictionaliy__wrap">
+  <h1 class="main__title">- dictionalies -</h1>
+  <% @dictionalies.each do |dictionaly| %>
+    <h1 class="dictionaliy__title">タイトル：<%= dictionaly.title %></h1>
+    <% if dictionaly.image? %>
+      <%= "dictionaly.image" %>
+      <%= image_tag dictionaly.image, class: 'img dictionaliy__img' %>
+    <% else %>
+    <% end %>
+    <p class="dictionaliy__wrap"><%= dictionaly.content %></p>
+    <%= link_to "ノート詳細", dictionaly_path(dictionaly.id) %>
+  <% end %>
+  <%= link_to "辞書を作成する", new_dictionaly_path %>
+  <%= link_to "ノート一覧へ", notes_path %>
+</div>

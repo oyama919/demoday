@@ -1,0 +1,11 @@
+<div class="edit">
+  <%= form_for(@dictionaly) do |f| %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title, class: 'edit__field edit__title' %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.label :内容 %>
+  <%= f.text_area:content, class: 'edit__field edit__text' %>
+  <%= f.submit '投稿', class: 'button' %>
+  <% end %>
+</div>

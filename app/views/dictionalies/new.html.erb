@@ -1,16 +1,3 @@
-<h1>Dictionalies#new</h1>
-<p>Find me in app/views/dictionalies/new.html.erb</p>
-<%= form_for(@dictionaly) do |f| %>
-
-　　<%= f.label :name %>
-　　<%= f.file_field :name %>
-
-　　<%= f.label :description %>
-　　<%= f.file_field :description %>
-
-　　<%= f.label :image %>
-   <%= image_tag @dictionaly.image.thumb.url if @dictionaly.image? %>
-　 <%= f.file_field :image %>
-   <%= f.hidden_field :image_cache %>
-<% end %>
+<h1>辞書作成画面</h1>
+<%= render 'form' %>
 <%= link_to "辞書一覧へ戻る", dictionalies_path %>

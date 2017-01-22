@@ -1,18 +1,19 @@
 <div class="main__header">
   <h1 class="main__title">- Notes -</h1>
-  <uL class="page-list">
+  <ul class="page-list">
     <li class="page__nav"><%= link_to "ノートを作成する", new_note_path %></li>
     <li class="page__nav"><%= link_to "辞書一覧へ", dictionalies_path %></li>
-  </uL>
+  </ul>
 </div>
 <p><%= notice %></p>
 <div class="main__body">
-    <% @notes.each do |note| %>
-    <article class="main__column">
-      <h1>タイトル：<%= note.title %></h1>
-      <img src="<%= note.image %>">
-      <p><%= note.content %></p>
-      <%= link_to "ノート詳細", note_path(note.id) %>
-    </article>
+  <% @notes.each do |note| %>
+  <article class="main__column">
+    <h1><%= note.title %></h1>
+    <% note.note_texts.each do |note_text| %>
+      <%= note_text.text %>
     <% end %>
+    <%= link_to "ノート詳細", note_path(note.id) %>
+  </article>
+  <% end %>
 </div>

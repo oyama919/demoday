@@ -1,0 +1,13 @@
+<header class="note__header">
+  <h1 class="note__header__title"><%= link_to "lore logs", root_path %></h1>
+  <nav class="note__nav">
+    <ul class="note__nav__list">
+      <li class="note__nav__item"><%= link_to "ノート一覧へもどる", notes_path %></li>
+    </ul>
+  </nav>
+</header>
+<div class="note__body">
+  <div id="note_text_area">
+    <%= @old_note.try(:text) %>
+  </div>
+</div>

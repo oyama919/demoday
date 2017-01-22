@@ -4,13 +4,16 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.all
+    @note_texts = NoteText.all
   end
 
   def new
+    @old_note = Note.last
     if params[:back]
       @note = Note.new(notes_params)
     else
       @note = Note.new
+      @note_text = @note.note_texts.build
     end
     render layout: 'note_edit'
   end
@@ -21,13 +24,17 @@ class NotesController < ApplicationController
   end
 
   def create
-     @note = Note.new(notes_params)
-     @note.user_id = current_user.id
-     if @note.save
-       redirect_to notes_path, notice: "ノートを作成しました"
-     else
-       render action: 'new'
-     end
+    @note = Note.new(notes_params)
+    @note.user_id = current_user.id
+    if @note.save
+      @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes][:"0"][:text])
+      @note_text.save
+      @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes][:"1"][:text])
+      @note_text.save
+      redirect_to new_note_path, notice: "ノートを更新しました"
+    else
+      render layout: 'new'
+    end
   end
 
   def edit
@@ -44,15 +51,17 @@ class NotesController < ApplicationController
     redirect_to notes_path, notice: "ノートを削除しました"
   end
   def show
-    # @comment = @note.comments.build
-    # @comments = @note.comments
+
   end
 
   private
     def notes_params
-      params.require(:note).permit(:name, :description, :image)
+      params.require(:note).permit(:title)
     end
 
+    def note_text_params
+      params.require(:note).permit(note_text_attributes: [:text])
+    end
     def set_note
       @note = Note.find(params[:id])
     end

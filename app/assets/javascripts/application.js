@@ -11,6 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+$(function (){
+  var count = 0;
+  function putTxt(count){
+    $("#new_note").append('<textarea class="edit__field edit__text" name="note[note_texts_attributes]['+count+'][text]" id="note_note_texts_attributes_['+count+']_text"></textarea>');
+  }
+  $("#textBtn").click(function(){
+    putTxt(count);
+    count++;
+    console.log(count);
+  });
+});
