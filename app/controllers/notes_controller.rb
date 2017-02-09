@@ -27,10 +27,14 @@ class NotesController < ApplicationController
     @note = Note.new(notes_params)
     @note.user_id = current_user.id
     if @note.save
-      @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes][:"0"][:text])
-      @note_text.save
-      @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes][:"1"][:text])
-      @note_text.save
+      num = params[:note][:note_texts_attributes].size
+      num.times do |n|
+        @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes].to_a[n][1][:text])
+        @note_text.save
+        @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes].to_a[n][1][:note_texts_style])
+        binding.pry
+        @note_text.save
+      end
       redirect_to new_note_path, notice: "ノートを更新しました"
     else
       render layout: 'new'
@@ -60,7 +64,7 @@ class NotesController < ApplicationController
     end
 
     def note_text_params
-      params.require(:note).permit(note_text_attributes: [:text])
+      params.require(:note_text).permit(:text,:note_id,:note_texts_style)
     end
     def set_note
       @note = Note.find(params[:id])
