@@ -11,7 +11,7 @@
   <article class="main__column">
     <h1><%= note.title %></h1>
     <% note.note_texts.each do |note_text| %>
-      <%= note_text.text %>
+      <p><%= note_text.text %></p>
     <% end %>
     <%= link_to "ノート詳細", note_path(note.id) %>
   </article>

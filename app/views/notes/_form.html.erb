@@ -1,6 +1,6 @@
 <div class="edit">
   <%= form_for(@note) do |f| %>
   <%= f.text_field :title %>
-  <%= f.submit '投稿' %>
+  <input type="submit" name="commit" value="投稿" id="submit">
   <% end %>
 </div>

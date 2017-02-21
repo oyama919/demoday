@@ -1,4 +1,4 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p><%= @user.name %></p>
+<p><%= @user.created_at.strftime("%y/%m/%d %p %l:%M") %><p>
 <%= link_to "辞書一覧へ", dictionalies_path %>
-<%= link_to "ノート一覧へ", notes_path %>
+<%= link_to "ノート一覧へ", users_path %>

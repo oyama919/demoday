@@ -19,9 +19,7 @@
 $(function (){
   var count = 0;
   function putTxt(count){
-    $("#new_note").append('<form"><div class="draggable"><textarea name="note[note_texts_attributes]['+count+'][text]" id="note_note_texts_attributes_['+count+']_text" value="['+count+']" class="draggable_text notetext"></textarea></div><input type="hidden" name="note[note_texts_style]['+count+']" id="note_note_texts_attributes_['+count+']_text_style"></form>');
-
-    // $(".edit").append('<div class="draggable notetext"></div>');
+    $("#new_note").append('<form"><div class="draggable"><textarea name="note[note_texts_attributes]['+count+'][text]" id="note_note_texts_attributes_['+count+']_text" value="['+count+']" class="draggable_text notetext"></textarea></div><input type="hidden" name="note[note_texts_attributes]['+count+'][note_text_style]" id="note_note_texts_attributes_['+count+']_note_text_style"></form>');
   }
   $("#textBtn").click(function(){
     putTxt(count);
@@ -32,8 +30,8 @@ $(function (){
     $(".draggable").draggable();
     $(".draggable_text").draggable().resizable();
     console.log(document.getElementById("note_note_texts_attributes_["+(count-1)+"]_text").style.cssText);
-    console.log(document.getElementById("note_note_texts_attributes_["+(count-1)+"]_text_style"));
-        console.log(document.getElementById("note_note_texts_attributes_["+(count-1)+"]_text_style").value=document.getElementById("note_note_texts_attributes_["+(count-1)+"]_text").style.cssText);
+    console.log(document.getElementById("note_note_texts_attributes_["+(count-1)+"]_note_text_style"));
+        console.log(document.getElementById("note_note_texts_attributes_["+(count-1)+"]_note_text_style").value=document.getElementById("note_note_texts_attributes_["+(count-1)+"]_text").style.cssText);
   });
 
   $('#new_note').on('MutationObserver', function() {

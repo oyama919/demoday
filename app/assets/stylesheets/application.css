@@ -122,19 +122,28 @@ body{
   margin-bottom: 20px;
 }
 .main__body{
-  border: 1px solid #838250;
-  padding: 20px;
-  background: #fefefe;
-  height: 100%;
   margin: auto;
+  padding: 30px 10px;
+  min-height: 100%;
+  background: #fefefe;
+  box-shadow: 3px 3px 7px 1px rgba(140, 160, 180, 0.3);
+  -moz-box-shadow: 3px 3px 7px 1px rgba(140, 160, 180, 0.3);
+  -webkit-box-shadow: 3px 3px 7px 1px rgba(140, 160, 180, 0.3);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .main__column{
-  width: 49.5%;
+  width: 46%;
   height: 200px;
-  display: inline-block;
-  border: 1px solid #838250;
   box-sizing: border-box;
-  margin-bottom: 3px;
+  float: left;
+  margin: 0 10px 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 1px 1px rgba(140, 160, 180, 0.1);
+  -moz-box-shadow: 0 1px 1px 1px rgba(140, 160, 180, 0.1);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(140, 160, 180, 0.1);
+  line-height: 2;
 }
 @media (max-width: 850px) {
   .main-contents{
@@ -144,7 +153,7 @@ body{
   }
   .main__column{
     width: 100%;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
   }
 }
 /* メインコンテンツ用大枠 */

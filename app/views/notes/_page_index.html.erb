@@ -7,7 +7,8 @@
   </nav>
 </header>
 <div class="note__body">
-  <div id="note_text_area">
-    <%= @old_note.try(:text) %>
+  <div id="note_text_area" style="postion:relative;">
+    <p>text</p>
+    <p style="<%= @note_text.note_text_style %> border:1px solid #ccc;"><%= @note_text.text %>tes</p>
   </div>
 </div>

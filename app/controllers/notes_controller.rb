@@ -29,10 +29,7 @@ class NotesController < ApplicationController
     if @note.save
       num = params[:note][:note_texts_attributes].size
       num.times do |n|
-        @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes].to_a[n][1][:text])
-        @note_text.save
-        @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes].to_a[n][1][:note_texts_style])
-        binding.pry
+        @note_text = @note.note_texts.build(text: params[:note][:note_texts_attributes].to_a[n][1][:text],note_text_style: params[:note][:note_texts_attributes].to_a[n][1][:note_text_style])
         @note_text.save
       end
       redirect_to new_note_path, notice: "ノートを更新しました"
@@ -68,5 +65,6 @@ class NotesController < ApplicationController
     end
     def set_note
       @note = Note.find(params[:id])
+      @note_text = NoteText.find_by_id(params[:id])
     end
 end
